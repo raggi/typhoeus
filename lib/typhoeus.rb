@@ -1,6 +1,3 @@
-$LOAD_PATH.unshift(File.dirname(__FILE__)) unless $LOAD_PATH.include?(File.dirname(__FILE__))
-$LOAD_PATH.unshift(File.dirname(__FILE__) + "/../ext")
-
 require 'digest/sha2'
 require 'typhoeus/utils'
 require 'typhoeus/normalized_header_hash'
@@ -17,7 +14,6 @@ require 'typhoeus/hydra'
 require 'typhoeus/hydra_mock'
 
 module Typhoeus
-  VERSION = File.read(File.dirname(__FILE__) + "/../VERSION").chomp
 
   def self.easy_object_pool
     @easy_objects ||= []

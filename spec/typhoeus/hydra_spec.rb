@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 # some of these tests assume that you have some local services running.
 # ruby spec/servers/app.rb -p 3000

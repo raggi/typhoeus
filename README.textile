@@ -296,8 +296,8 @@ h2. Benchmarks
 I set up a benchmark to test how the parallel performance works vs Ruby's built in NET::HTTP. The setup was a local evented HTTP server that would take a request, sleep for 500 milliseconds and then issued a blank response. I set up the client to call this 20 times. Here are the results:
 
 <pre>
-  net::http  0.030000   0.010000   0.040000 ( 10.054327)
-  typhoeus   0.020000   0.070000   0.090000 (  0.508817)
+  net/http  0.030000   0.010000   0.040000 (  0.536903)
+  typhoeus  0.020000   0.050000   0.070000 (  0.507289)
 </pre>
 
 We can see from this that NET::HTTP performs as expected, taking 10 seconds to run 20 500ms requests. Typhoeus only takes 500ms (the time of the response that took the longest.) One other thing to note is that Typhoeus keeps a pool of libcurl Easy handles to use. For this benchmark I warmed the pool first. So if you test this out it may be a bit slower until the Easy handle pool has enough in it to run all the simultaneous requests. For some reason the easy handles can take quite some time to allocate.

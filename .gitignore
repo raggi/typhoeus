@@ -1,3 +1,6 @@
 .*.sw?
 *.gem
 .bundle
+*.o
+*.so
+Makefile
